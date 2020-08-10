@@ -18,6 +18,14 @@ class Programadores(Base):
     def __repr__(self):
         return '<Programador {}>'.format(self.nome)
 
+    def save(self):
+        db_session.add(self)
+        db_session.commit
+
+    def delete(self):
+        db_session.delete(self)
+        db_session.commit()
+
 class Habilidades(Base):
     __tablename__='habilidades'
     id = Column(Integer, primary_key=True)
